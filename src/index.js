@@ -174,14 +174,14 @@ client.on('messageReactionAdd', async (reaction, user) => {
         reaction.message.reply(hateMessages[getRandomHate()])
     }
 
-    if (haterReactUserIds.has(user.id) && (reaction.emoji.name === '🔥')) {
+    if (glazeReactUserIds.has(user.id) && (reaction.emoji.name === '🔥')) {
         reaction.message.react('🔥')
         reaction.message.react('❤️')
         reaction.message.react('💯')
         reaction.message.react('‼️')
     }
 
-    if (haterReplyUserIds.has(user.id) && (reaction.emoji.name === '🔥')) {
+    if (glazeReplyUserIds.has(user.id) && (reaction.emoji.name === '🔥')) {
         reaction.message.reply(hateMessages[getRandomGlaze()])
     }
 
