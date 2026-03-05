@@ -78,7 +78,7 @@ client.on('interactionCreate', (interaction) => {
     }
 
     //handle 'togglereply' command
-    if (interaction.commandName === 'togglereplies') {
+    if (interaction.commandName === 'togglereply') {
         if (replyUserIds.has(interaction.user.id)) {
             replyUserIds.delete(interaction.user.id);
             interaction.reply({content: 'Toggled replies off.', ephemeral:true});
