@@ -126,7 +126,7 @@ client.on('interactionCreate', (interaction) => {
     }
 
     //handle 'toggleglazereply' command
-    if (interaction.commandName === 'toggleglazereact') {
+    if (interaction.commandName === 'toggleglazereply') {
          if (glazeReplyUserIds.has(interaction.user.id)) {
             glazeReplyUserIds.delete(interaction.user.id);
             interaction.reply({content: 'Toggles positive replies off.', ephemeral:true});
