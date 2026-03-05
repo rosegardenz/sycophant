@@ -3,13 +3,22 @@ const {REST,Routes} = require('discord.js')
 
 const commands = [
     {
-        name: 'toggleglaze',
-        description: 'Toggles replies',
+        name: 'togglereact',
+        description: 'Toggles positive bot reactions',
     },
     {
-        name: 'togglereact',
-        description: 'Toggles bot reactions',
+        name: 'togglereply',
+        description: 'Toggles positive bot replies',
     },
+
+    {
+        name: 'togglehatereact',
+        description: 'Toggles negative bot reactions on messages you react "👎" to',
+    },
+    {
+        name: 'togglehatereply',
+        description: 'Toggles negative bot replies on messages you react "👎" to',
+    }
 ];
 
 const rest = new REST({ version: '10' }).setToken(process.env.TOKEN);
