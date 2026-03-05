@@ -182,7 +182,7 @@ client.on('messageReactionAdd', async (reaction, user) => {
     }
 
     if (glazeReplyUserIds.has(user.id) && (reaction.emoji.name === '🔥')) {
-        reaction.message.reply(hateMessages[getRandomGlaze()])
+        reaction.message.reply(glazeMessages[getRandomGlaze()])
     }
 
 })  
