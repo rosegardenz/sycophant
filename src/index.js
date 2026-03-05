@@ -4,6 +4,8 @@ const reactUserIds = new Set();
 const replyUserIds = new Set();
 const haterReactUserIds = new Set();
 const haterReplyUserIds = new Set();
+const glazeReactUserIds = new Set();
+const glazeReplyUserIds = new Set();
 
 const client = new Client({
     intents: [
@@ -110,6 +112,30 @@ client.on('interactionCreate', (interaction) => {
             interaction.reply({content: 'Toggled hateful replies on!', ephemeral:true});
         }
     }
+
+    //handle 'toggleglazereact' command
+    if (interaction.commandName === 'toggleglazereact') {
+         if (glazeReactUserIds.has(interaction.user.id)) {
+            glazeReactUserIds.delete(interaction.user.id);
+            interaction.reply({content: 'Toggles positive reacts off.', ephemeral:true});
+        }
+        else {
+            glazeReactUserIds.add(interaction.user.id)
+            interaction.reply({content: 'Toggled positive reacts on!', ephemeral:true});
+        }
+    }
+
+    //handle 'toggleglazereply' command
+    if (interaction.commandName === 'toggleglazereact') {
+         if (glazeReplyUserIds.has(interaction.user.id)) {
+            glazeReplyUserIds.delete(interaction.user.id);
+            interaction.reply({content: 'Toggles positive replies off.', ephemeral:true});
+        }
+        else {
+            glazeReplyUserIds.add(interaction.user.id)
+            interaction.reply({content: 'Toggled positive replies on!', ephemeral:true});
+        }
+    }
 })
 
 client.on('messageCreate', (message) => {
@@ -118,6 +144,7 @@ client.on('messageCreate', (message) => {
         message.react('❤️')
         message.react('🔥')
         message.react('💯')
+        message.react('‼️')
     }
 
     if (replyUserIds.has(message.author.id)) {
@@ -146,6 +173,18 @@ client.on('messageReactionAdd', async (reaction, user) => {
     if (haterReplyUserIds.has(user.id) && (reaction.emoji.name === '👎')) {
         reaction.message.reply(hateMessages[getRandomHate()])
     }
+
+    if (haterReactUserIds.has(user.id) && (reaction.emoji.name === '🔥')) {
+        reaction.message.react('🔥')
+        reaction.message.react('❤️')
+        reaction.message.react('💯')
+        reaction.message.react('‼️')
+    }
+
+    if (haterReplyUserIds.has(user.id) && (reaction.emoji.name === '🔥')) {
+        reaction.message.reply(hateMessages[getRandomGlaze()])
+    }
+
 })  
 
 client.login(process.env.TOKEN)

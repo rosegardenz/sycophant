@@ -18,6 +18,14 @@ const commands = [
     {
         name: 'togglehatereply',
         description: 'Toggles negative bot replies on messages you react "👎" to',
+    }, 
+    {
+        name: 'toggleglazereact',
+        description: 'Toggles positive bot reactions on messages you react "🔥" to'
+    },
+    {
+        name: 'toggleglazereply',
+        description: 'Toggles positive bot replies on messages you react "🔥" to'
     }
 ];
 
